@@ -2,9 +2,8 @@ import React from 'react';
 import LoginForm from '../forms/LoginForm';
 
 class LoginPage extends React.Component {
-
   submit = (data) => {
-    console.log(data);
+    this.props.login(data).then(() => this.props.history.push("/"));
   };
 
   render() {
@@ -13,7 +12,7 @@ class LoginPage extends React.Component {
       <div>
       <h1> Login Page</h1>
       
-        <LoginForm submit= {this.submit} />
+        <LoginForm submit={this.submit} />
       
         </div>
     );
